@@ -1,5 +1,7 @@
  # Stage 1: Build the application
 FROM eclipse-temurin:17-jdk-jammy as builder
+RUN apt-get update && \
+    apt-get install -y nodejs npm
 WORKDIR /app
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
