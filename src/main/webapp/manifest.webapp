@@ -1,0 +1,16 @@
+{
+  "name": "INSTAtool",
+  "short_name": "INSTAtool",
+  "icons": [
+      {
+        "src": "/favicon.ico",
+        "sizes": "48x48",
+        "type": "image/x-icon"
+      }
+  ],
+  "theme_color": "#833ab4",
+  "background_color": "#e0e0e0",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}
