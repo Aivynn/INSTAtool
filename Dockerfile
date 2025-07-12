@@ -9,6 +9,7 @@ RUN chmod +x ./mvnw
 RUN ./mvnw dependency:go-offline
 COPY package*.json ./
 COPY src ./src
+COPY webpack ./webpack
 RUN ./mvnw package -DskipTests
 
 # Stage 2: Create the final, small image
