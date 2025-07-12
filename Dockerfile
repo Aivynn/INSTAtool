@@ -10,6 +10,8 @@ RUN ./mvnw dependency:go-offline
 COPY package*.json ./
 COPY src ./src
 COPY webpack ./webpack
+COPY tsconfig.json ./
+COPY *.js ./
 RUN ./mvnw package -DskipTests
 
 # Stage 2: Create the final, small image
