@@ -67,7 +67,6 @@
         <profile.e2e/>
         <profile.test/>
         <profile.tls/>
-        <properties-maven-plugin.version>1.2.1</properties-maven-plugin.version>
         <resource.delimiter>@</resource.delimiter>
         <sonar-maven-plugin.version>5.0.0.4389</sonar-maven-plugin.version>
         <spotless-maven-plugin.version>2.44.2</spotless-maven-plugin.version>
@@ -286,10 +285,6 @@
             <plugin>
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>jib-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>properties-maven-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>org.gaul</groupId>
@@ -632,24 +627,6 @@
                     <groupId>net.nicoulaj.maven.plugins</groupId>
                     <artifactId>checksum-maven-plugin</artifactId>
                     <version>${checksum-maven-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>properties-maven-plugin</artifactId>
-                    <version>${properties-maven-plugin.version}</version>
-                    <executions>
-                        <execution>
-                            <phase>initialize</phase>
-                            <goals>
-                                <goal>read-project-properties</goal>
-                            </goals>
-                            <configuration>
-                                <files>
-                                    <file>sonar-project.properties</file>
-                                </files>
-                            </configuration>
-                        </execution>
-                    </executions>
                 </plugin>
                 <plugin>
                     <groupId>org.gaul</groupId>
