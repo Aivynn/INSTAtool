@@ -52,8 +52,12 @@ public class SubmitController {
         try {
             String inputUrl = payload.getText();
 
-            if (inputUrl.contains("/p/")) {
-                String shortcode = extractShortcode(inputUrl);
+            if (inputUrl.contains("/p/") || inputUrl.contains("/reel")) {
+                boolean flag = false;
+                if (inputUrl.contains("/reel")) {
+                    flag = true;
+                }
+                String shortcode = extractShortcode(inputUrl, flag);
                 HttpHeaders headers = new HttpHeaders();
                 ObjectMapper mapper = new ObjectMapper();
 
@@ -63,6 +67,7 @@ public class SubmitController {
                 JsonNode jsonNode;
                 MediaType type;
                 String path;
+                jsonNode = mapper.readTree(postResponse.body());
                 int size = mapper
                     .readTree(postResponse.body())
                     .path("data")
@@ -263,8 +268,11 @@ public class SubmitController {
         return "";
     }
 
-    private String extractShortcode(String url) {
+    private String extractShortcode(String url, boolean flag) {
         Pattern pattern = Pattern.compile("instagram\\.com/p/([^/]+)/?");
+        if (flag) {
+            pattern = Pattern.compile("instagram\\.com/reel/([^/]+)/?");
+        }
         Matcher matcher = pattern.matcher(url);
         if (matcher.find()) {
             return matcher.group(1);
