@@ -183,7 +183,9 @@ describe('Authentication reducer tests', () => {
       const loginResponse = { headers: { authorization: 'auth' } };
       axios.post = sinon.stub().returns(Promise.resolve(loginResponse));
 
-      const result = await authenticate('test', 'test')(dispatch, getState, extra);
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
+      const result = await authenticate('test')(dispatch, getState, extra);
 
       const pendingAction = dispatch.mock.calls[0][0];
       expect(pendingAction.meta.requestStatus).toBe('pending');
