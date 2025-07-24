@@ -64,10 +64,10 @@ public class SubmitController {
                 GetInstagramPostRequest postRequest = new GetInstagramPostRequest(shortcode);
 
                 HttpResponse<String> postResponse = getInstagramPostGraphQL(postRequest);
+                System.out.println(postResponse.body());
                 JsonNode jsonNode;
                 MediaType type;
                 String path;
-                jsonNode = mapper.readTree(postResponse.body());
                 int size = mapper
                     .readTree(postResponse.body())
                     .path("data")
@@ -85,9 +85,6 @@ public class SubmitController {
                         URL url = new URL(path);
                         showImage(0, url, type);
                     } else {
-                        System.out.println(mapper.readTree(postResponse.body()));
-                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                        System.out.println(mapper.readTree(postResponse.body()));
                         jsonNode = mapper
                             .readTree(postResponse.body())
                             .path("data")
