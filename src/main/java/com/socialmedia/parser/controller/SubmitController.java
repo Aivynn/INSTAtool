@@ -408,7 +408,7 @@ public class SubmitController {
             .header("Content-Type", "application/x-www-form-urlencoded")
             .header("X-FB-Friendly-Name", "PolarisPostActionLoadPostQueryQuery")
             .header("X-BLOKS-VERSION-ID", "0d99de0d13662a50e0958bcb112dd651f70dea02e1859073ab25f8f2a477de96") // Static, but potentially dynamic
-            .header("X-CSRFToken", "X6LAL9mpB3Dyw7Zy9I91a3COUkHCOINJ") // Highly likely to be dynamic
+            .header("X-CSRFToken", "ak7Y0wI2Mta8wf40yXlW292hD62G4HKu") // Highly likely to be dynamic
             .header("X-IG-App-ID", "1217981644879628") // Static app ID
             .header("X-FB-LSD", "AVrqPT0gJDo") // Likely dynamic
             .header("X-ASBD-ID", "359341") // Likely dynamic
