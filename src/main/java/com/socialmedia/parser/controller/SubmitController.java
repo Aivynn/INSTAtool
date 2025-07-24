@@ -85,6 +85,7 @@ public class SubmitController {
                         URL url = new URL(path);
                         showImage(0, url, type);
                     } else {
+                        System.out.println(mapper.readTree(postResponse.body()));
                         jsonNode = mapper
                             .readTree(postResponse.body())
                             .path("data")
