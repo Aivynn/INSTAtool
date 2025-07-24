@@ -11,10 +11,9 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable()) // Modern style for disabling CSRF
-            .authorizeHttpRequests(
-                auth -> auth.requestMatchers("/api/submit", "/api/media/**").permitAll().anyRequest().permitAll() // or .authenticated() if needed
-            );
+            .authorizeHttpRequests(authz -> authz.anyRequest().permitAll())
+            .csrf(csrf -> csrf.disable())
+            .headers(headers -> headers.frameOptions(frame -> frame.disable())); // for H2 or iframe
 
         return http.build();
     }
