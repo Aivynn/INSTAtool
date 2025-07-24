@@ -1,10 +1,10 @@
-# fly.toml app configuration file generated for instatool on 2025-07-12T18:19:10Z
+# fly.toml app configuration file generated for instatool on 2025-07-24T10:58:54Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
 app = 'instatool'
-primary_region = 'lhr'
+primary_region = 'arn'
 
 [build]
 
