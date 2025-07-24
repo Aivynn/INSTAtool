@@ -312,15 +312,6 @@ public class SubmitController {
         mediaCache.put(i, piece);
     }
 
-    @GetMapping("/account")
-    public ResponseEntity<Map<String, Object>> getAccount() {
-        Map<String, Object> dummyAccount = new HashMap<>();
-        dummyAccount.put("login", "guest");
-        dummyAccount.put("firstName", "Guest");
-        dummyAccount.put("langKey", "en");
-        return ResponseEntity.ok(dummyAccount);
-    }
-
     @GetMapping("/media/{index}")
     public ResponseEntity<byte[]> getMedia(@PathVariable int index) {
         MediaHolder holder = mediaCache.get(index);
